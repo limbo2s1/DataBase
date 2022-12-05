@@ -17,6 +17,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="DataBaseEditor\FormEditorTable5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DataBaseEditor\FormEditorTable4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DataBaseEditor\FormEditorTable3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DataBaseEditor\FormEditorTable2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DataBaseEditor\FormEditorTable1.cs">
       <SubType>Form</SubType>
     </Compile>

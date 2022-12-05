@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.DataBaseEditor
             InitializeComponent();
         }
 
-        string _tableName = "Tovar";
+        string _tableName = "Sells";
 
         private void Table1_Load(object sender, EventArgs e)
         {
@@ -28,20 +28,23 @@ namespace WindowsFormsApp1.DataBaseEditor
 
         private void BtnInsert_Click(object sender, EventArgs e)
         {
-            string[] args = new string[3];
-            args[0] = textBox1.Text;
-            args[1] = textBox2.Text;
-            args[2] = textBox3.Text;
+            string[] args = new string[6];
+            args[0] = textBox4.Text;
+            args[1] = textBox1.Text;
+            args[2] = textBox2.Text;
+            args[3] = textBox3.Text;
+            args[4] = textBox5.Text;
+            args[5] = textBox6.Text;
 
             DataBaseCommadsManager manager = new DataBaseCommadsManager();
             manager.Insert(args, _tableName);
+            dataGridView1.DataSource = manager.GetDataTable(_tableName);
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            int currentRow = dataGridView1.CurrentCell.RowIndex;
             string[] args = new string[1];
-            args[0] = dataGridView1[0, currentRow].Value.ToString();
+            args[0] = textBox4.Text;
 
             DataBaseCommadsManager manager = new DataBaseCommadsManager();
             manager.Delete(args, _tableName);
@@ -50,7 +53,20 @@ namespace WindowsFormsApp1.DataBaseEditor
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            // дома
+            string[] args = new string[8];
+            args[0] = textBox4.Text;
+            args[1] = textBox1.Text;
+            args[2] = textBox2.Text;
+            args[3] = textBox3.Text;
+            args[4] = textBox5.Text;
+            args[5] = textBox6.Text;
+            button1.Enabled = true;
+            button2.Enabled = true;
+            DataBaseCommadsManager manager = new DataBaseCommadsManager();
+            manager.Update(args, _tableName);
+            dataGridView1.DataSource = manager.GetDataTable(_tableName);
         }
+
+
     }
 }

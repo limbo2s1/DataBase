@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataBaseLib.Commands
 {
-    internal class Table1Commands : ITableEditorCommand
+    internal class Table4Commands : ITableEditorCommand
     {
         // ЕСЛИ нужна другая БД, просто меняем AccessDataBaseController
         // на нужную, например SQLiteDataBaseController
@@ -21,31 +21,25 @@ namespace DataBaseLib.Commands
 
         public void Insert(string[] args)
         {            
-            string query = $"INSERT INTO [Tovar] " +
-                    $"([Код инструмента], [Название инструмента], [Цена], [Модель]) " +
-                    $"VALUES ('{args[0]}', '{args[1]}', {args[2]})";
+            string query = $"INSERT INTO [Shops] " +
+                    $"([Код магазина], [Название], [Адрес]) " +
+                    $"VALUES ({args[0]}, '{args[1]}', '{args[2]}')";
             controller.ExecuteCommand(query);
         }
 
         public void Update(string[] args)
         {
-            //// дома
-
-
-            //string query = $"UPDATE [Tovar] SET [Название инструмента] = '{type}', " +
-            //       $"WHERE [Код инструмента] = {id}";
-
+            string query = @$"UPDATE [Shops]
+                    SET [Название] = '{args[1]}',[Адрес] = '{args[2]}'
+                    WHERE [Код магазина] = {args[0]}";
+            controller.ExecuteCommand(query);
         }
 
         public void Delete(string[] args)
         {
-            // дома
-
-
-            string query = $"DELETE FROM [Tovar] " +
-                    $"WHERE [Код инструмента] = {args[0]}";
+            string query = $"DELETE FROM [Shops] " +
+                    $"WHERE [Код магазина] = {args[0]}";
             controller.ExecuteCommand(query);
-
         }
 
 
